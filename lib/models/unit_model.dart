@@ -2,7 +2,7 @@ class UnitModel {
   final String name;
   final String code;
   final String room;
-  final DateTime nextClass;
+  final String nextClass;
   final DateTime nextCat;
   final DateTime examDate;
   final String lecturer;

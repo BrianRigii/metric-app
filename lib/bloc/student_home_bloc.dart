@@ -8,5 +8,9 @@ class StudentHomeBloc extends Bloc {
     studentHomeManager.loadUnits().then((response) {
       showToast("Found SomeUnits sire");
     });
+
+    studentHomeManager.loadTodaysClasses().catchError((error) {
+      showToast('couldnt find todays classes');
+    });
   }
 }

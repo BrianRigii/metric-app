@@ -8,6 +8,7 @@ class StudentHomeManager extends Manager {
   StudentHomeManager._instance();
 
   List<UnitModel> units = [];
+  List<UnitModel> todaysClasses = [];
 
   bool _isloadingUnits = false;
   bool get isloadingUnits => _isloadingUnits;
@@ -34,6 +35,23 @@ class StudentHomeManager extends Manager {
     payload.forEach((unit) {
       units.add(UnitModel.fromMap(unit));
       setloadUnits = false;
+    });
+  }
+
+  Future loadTodaysClasses() {
+    return api.getTodaysClasses().then((response) {
+      var payload = response.data;
+      todaysClasses = [];
+      saveTodaysClasses(payload);
+    }).catchError((error) {
+      print(error);
+      throw error;
+    });
+  }
+
+  saveTodaysClasses(payload) {
+    payload.forEach((unit) {
+      todaysClasses.add(UnitModel.fromMap(unit));
     });
   }
 }

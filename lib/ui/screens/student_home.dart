@@ -5,6 +5,8 @@ import 'package:school/helpers/auth_manager.dart';
 import 'package:school/helpers/student_home_manager.dart';
 import 'package:school/tools/bloc_provider.dart';
 import 'package:school/ui/widgets/task_cards.dart';
+
+import 'package:school/ui/widgets/todays_unit_card.dart';
 import 'package:school/ui/widgets/unit_card.dart';
 
 class StudentHome extends StatelessWidget {
@@ -75,11 +77,11 @@ class StudentHome extends StatelessWidget {
                   ),
                   SingleChildScrollView(
                     physics: BouncingScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    child: studentHomeManager.units.length > 0
-                        ? Row(
-                            children: studentHomeManager.units
-                                .map((unit) => UnitCard(unit))
+                    scrollDirection: Axis.vertical,
+                    child: studentHomeManager.todaysClasses.length > 0
+                        ? Column(
+                            children: studentHomeManager.todaysClasses
+                                .map((unit) => TodaysUnitCard(unit))
                                 .toList())
                         : Text('empty'),
                   ),
@@ -131,8 +133,6 @@ class StudentHome extends StatelessWidget {
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2),
                         itemBuilder: (context, index) {
-                          print(
-                              '********counts ${studentHomeManager.units.length}');
                           return UnitCard(studentHomeManager.units[index]);
                         }),
                   )

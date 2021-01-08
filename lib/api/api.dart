@@ -11,6 +11,10 @@ class Api extends DioApi {
   Future getUnits() {
     return dio.get('/api/units');
   }
+
+  Future getTodaysClasses() {
+    return dio.get('/api/todaysunits');
+  }
 }
 
 var api = Api(config.apiUrl);

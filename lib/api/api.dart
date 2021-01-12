@@ -13,7 +13,7 @@ class Api extends DioApi {
   }
 
   Future getTodaysClasses() {
-    return dio.get('/api/todaysunits');
+    return dio.get('/api/unit/todaysunits');
   }
 }
 

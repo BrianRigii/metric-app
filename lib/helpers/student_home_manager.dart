@@ -32,7 +32,7 @@ class StudentHomeManager extends Manager {
   }
 
   void saveUnits(payload) {
-    payload.forEach((unit) {
+    payload['units'].forEach((unit) {
       units.add(UnitModel.fromMap(unit));
       setloadUnits = false;
     });
@@ -51,7 +51,9 @@ class StudentHomeManager extends Manager {
 
   saveTodaysClasses(payload) {
     payload.forEach((unit) {
+      print(unit);
       todaysClasses.add(UnitModel.fromMap(unit));
+      print('todays classes saved');
     });
   }
 }

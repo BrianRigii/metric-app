@@ -4,6 +4,7 @@ import 'package:school/config.dart';
 import 'package:school/helpers/auth_manager.dart';
 import 'package:school/helpers/student_home_manager.dart';
 import 'package:school/tools/bloc_provider.dart';
+import 'package:school/ui/widgets/app_drawer.dart';
 import 'package:school/ui/widgets/task_cards.dart';
 import 'package:school/ui/widgets/todays_unit_card.dart';
 import 'package:school/ui/widgets/unit_card.dart';
@@ -21,9 +22,12 @@ class StudentHome extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
-                  CircleAvatar(
-                    child: Icon(Icons.person_outline),
-                    maxRadius: 17,
+                  InkWell(
+                    onTap: () => Scaffold.of(context).openDrawer(),
+                    child: CircleAvatar(
+                      child: Icon(Icons.person_outline),
+                      maxRadius: 20,
+                    ),
                   ),
                   SizedBox(width: 10),
                   Column(
@@ -50,6 +54,9 @@ class StudentHome extends StatelessWidget {
             ),
             preferredSize: Size.fromHeight(10),
           ),
+        ),
+        drawer: Drawer(
+          child: AppDrawer(),
         ),
         body: BlocProvider(
             bloc: bloc,

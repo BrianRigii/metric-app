@@ -12,6 +12,7 @@ class AuthManager extends Manager {
   String get userEmail => Prefs.getString('useremail');
   int get usertype => Prefs.getInt('userType');
   String get regNum => Prefs.getString('regNum');
+  int get classId => Prefs.getInt('class_id');
 
   bool _deactivated = true;
   bool get deactivated => _deactivated;
@@ -52,7 +53,8 @@ class AuthManager extends Manager {
         await Prefs?.setString('useremail', useraccount.email) &&
         await Prefs?.setInt('role', useraccount.userole) &&
         await Prefs?.setInt("usertype", useraccount.usertype) &&
-        await Prefs?.setString('regNum', useraccount.regNum);
+        await Prefs?.setString('regNum', useraccount.regNum) &&
+        await Prefs?.setInt('class_id', useraccount.classId);
   }
 
   Future<bool> logOut() async {

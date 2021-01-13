@@ -12,5 +12,9 @@ class StudentHomeBloc extends Bloc {
     studentHomeManager.loadTodaysClasses().catchError((error) {
       showToast('couldnt find todays classes');
     });
+
+    studentHomeManager.loadClassTasks().catchError((error) {
+      showToast("could'nt load Tasks");
+    });
   }
 }

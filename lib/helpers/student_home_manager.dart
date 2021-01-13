@@ -1,4 +1,5 @@
 import 'package:school/api/api.dart';
+import 'package:school/models/task_model.dart';
 import 'package:school/models/unit_model.dart';
 import 'package:school/tools/manager.dart';
 
@@ -9,6 +10,7 @@ class StudentHomeManager extends Manager {
 
   List<UnitModel> units = [];
   List<UnitModel> todaysClasses = [];
+  List<TaskModel> tasks = [];
 
   bool _isloadingUnits = false;
   bool get isloadingUnits => _isloadingUnits;
@@ -54,6 +56,23 @@ class StudentHomeManager extends Manager {
       print(unit);
       todaysClasses.add(UnitModel.fromMap(unit));
       print('todays classes saved');
+    });
+  }
+
+  Future loadClassTasks() {
+    return api.getclassTasks().then((response) {
+      tasks = [];
+      var payload = response.data;
+      saveTasks(payload);
+    }).catchError((error) {
+      print('Error occured Loading Tasks $error');
+      throw error;
+    });
+  }
+
+  void saveTasks(payload) {
+    payload.forEach((task) {
+      TaskModel.fromMap(task);
     });
   }
 }

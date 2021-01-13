@@ -7,13 +7,22 @@ class TodaysUnitCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 100,
       padding: EdgeInsets.symmetric(horizontal: 16),
       child: Card(
         child: Row(children: [
-          Text('7:00'),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5.0),
+            child: SizedBox(
+                child: Text(
+              '7:00 am',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+            )),
+          ),
           VerticalDivider(),
           Expanded(
               child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(unit.name),

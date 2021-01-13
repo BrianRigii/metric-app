@@ -18,15 +18,15 @@ class UnitModel {
       this.lecturer,
       this.courseName});
 
-  factory UnitModel.fromMap(payload) {
+  factory UnitModel.fromMap(unit) {
     return UnitModel(
-        code: payload['code'],
-        name: payload['name'],
-        courseName: payload['course']['name'],
-        examDate: payload['exam_date'],
-        lecturer: payload['lecturer']['name'],
-        room: payload['room'],
-        nextCat: payload['next_cat'],
-        nextClass: payload['next_class']);
+        code: unit['code'],
+        name: unit['name'],
+        courseName: unit['course']['name'],
+        examDate: unit['exam_date'],
+        lecturer: unit['lecturer']['name'],
+        room: unit['room'],
+        nextCat: unit['next_cat'],
+        nextClass: unit['next_class']);
   }
 }

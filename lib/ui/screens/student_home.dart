@@ -22,8 +22,11 @@ class StudentHome extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
-                  InkWell(
-                    onTap: () => Scaffold.of(context).openDrawer(),
+                  GestureDetector(
+                    onTap: () {
+                      print('clicked');
+                      return Scaffold.of(context).openDrawer();
+                    },
                     child: CircleAvatar(
                       child: Icon(Icons.person_outline),
                       maxRadius: 20,

@@ -71,8 +71,9 @@ class StudentHomeManager extends Manager {
   }
 
   void saveTasks(payload) {
+    print('saving tasks');
     payload.forEach((task) {
-      TaskModel.fromMap(task);
+      tasks.add(TaskModel.fromMap(task));
     });
   }
 }

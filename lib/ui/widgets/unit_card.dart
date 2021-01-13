@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:school/config.dart';
 import 'package:school/models/unit_model.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
 class UnitCard extends StatelessWidget {
   final UnitModel unit;
@@ -20,10 +21,22 @@ class UnitCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(unit.name,
-                    style: TextStyle(
-                        color: config.bluePurple, fontWeight: FontWeight.w700)),
-                Text('11:00 - 12:30'),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(unit.name,
+                          style: TextStyle(
+                              color: config.bluePurple,
+                              fontWeight: FontWeight.w700)),
+                    ),
+                    CircularPercentIndicator(
+                      radius: 20,
+                      progressColor: Theme.of(context).accentColor,
+                      percent: 0.6,
+                      lineWidth: 3.0,
+                    )
+                  ],
+                ),
                 Spacer(),
                 Row(children: [
                   Icon(

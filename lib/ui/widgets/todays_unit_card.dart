@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:school/config.dart';
 import 'package:school/models/unit_model.dart';
 
 class TodaysUnitCard extends StatelessWidget {
@@ -22,10 +23,17 @@ class TodaysUnitCard extends StatelessWidget {
           VerticalDivider(),
           Expanded(
               child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(unit.name),
+              SizedBox(
+                height: 10,
+              ),
+              Text(unit.name,
+                  style: TextStyle(
+                      color: config.bluePurple, fontWeight: FontWeight.bold)),
+              SizedBox(
+                height: 15,
+              ),
               Row(
                 children: [
                   Icon(
@@ -34,6 +42,9 @@ class TodaysUnitCard extends StatelessWidget {
                   ),
                   Text('CLB 401')
                 ],
+              ),
+              SizedBox(
+                height: 5,
               ),
               Row(
                 children: [

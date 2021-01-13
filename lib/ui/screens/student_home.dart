@@ -114,11 +114,10 @@ class StudentHome extends StatelessWidget {
                   SingleChildScrollView(
                     physics: BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
-                    child: Row(children: [
-                      TaskCard(),
-                      TaskCard(),
-                      TaskCard(),
-                    ]),
+                    child: Row(
+                        children: studentHomeManager.tasks
+                            .map((task) => TaskCard(task))
+                            .toList()),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(

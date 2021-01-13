@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:school/config.dart';
+import 'package:school/models/task_model.dart';
 import 'package:school/ui/widgets/badge.dart';
 
 class TaskCard extends StatelessWidget {
+  final TaskModel task;
+  const TaskCard(this.task);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,7 +19,7 @@ class TaskCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Machine Learning',
+              Text(task.description,
                   style: TextStyle(
                       color: config.bluePurple, fontWeight: FontWeight.bold)),
               SizedBox(
@@ -24,7 +27,7 @@ class TaskCard extends StatelessWidget {
               ),
               Badge(
                 color: Colors.green,
-                text: "Assignment",
+                text: task.type,
               ),
               Spacer(),
               Text('Due Date'),
